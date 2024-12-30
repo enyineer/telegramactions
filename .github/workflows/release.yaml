@@ -1,0 +1,33 @@
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+name: release
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      # Setup Bun
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+
+      # Install Dependencies and build binary
+      - run: bun install
+      - run: bun build --compile --target=bun-linux-x64 ./src/index.ts --outfile telegramactions-linux-x64
+      - run: bun build --compile --target=bun-linux-arm64 ./src/index.ts --outfile telegramactions-linux-arm64
+      - run: bun build --compile --target=bun-windows-x64 ./src/index.ts --outfile telegramactions-windows-x64
+      - run: bun build --compile --target=bun-darwin-arm64 ./src/index.ts --outfile telegramactions-darwin-arm64
+      - run: bun build --compile --target=bun-darwin-x64 ./src/index.ts --outfile telegramactions-darwin-x64
+
+      # Create Release
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            telegramactions-linux-x64
+            telegramactions-linux-arm64
+            telegramactions-windows-x64.exe
+            telegramactions-darwin-arm64
+            telegramactions-darwin-x64
