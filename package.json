@@ -1,0 +1,17 @@
+{
+  "name": "telegramactions",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.1",
+    "big-integer": "^1.6.52",
+    "dotenv": "^16.4.7",
+    "telegram": "^2.26.16"
+  }
+}
