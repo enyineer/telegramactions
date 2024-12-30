@@ -20,4 +20,16 @@ To run:
 bun run src/index.ts
 ```
 
+## Releasing
 
+Create Tag:
+
+```bash
+git tag -a vX.X.X -m "Release vX.X.X"
+```
+
+Push Tag:
+
+```bash
+git push origin vX.X.X
+```
