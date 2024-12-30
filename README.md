@@ -31,6 +31,9 @@ bun run src/index.ts
 
 ## Releasing
 
+> [!NOTE]
+> This will automatically cross-compile binaries for Linux (x64, arm64), Windows (x64) and Darwin (x64 and arm64) and create a release with the Tags name.
+
 1. Create Tag:
 ```bash
 git tag -a vX.X.X -m "Release vX.X.X"
