@@ -6,30 +6,37 @@ Provides some actions for ease of use with Telegram.
 
 - Mass Delete your messages from multiple Chats
 
-## Installation
+## Download
 
-To install dependencies:
+Download the latest version from [Releases](https://github.com/enyineer/telegramactions/releases).
 
+## Development
+
+1. Install dependencies:
 ```bash
 bun install
 ```
 
-To run:
+2. Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
 
+3. After that, edit the values in your `.env` file and fill it out with the values from https://my.telegram.org/apps.
+
+4. Run it:
 ```bash
 bun run src/index.ts
 ```
 
 ## Releasing
 
-Create Tag:
-
+1. Create Tag:
 ```bash
 git tag -a vX.X.X -m "Release vX.X.X"
 ```
 
-Push Tag:
-
+2. Push Tag:
 ```bash
 git push origin vX.X.X
 ```
