@@ -6,6 +6,8 @@ name: release
 jobs:
   release:
     name: release
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       # Setup Bun
